@@ -28,15 +28,15 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="5326bcd8-fe9d-4218-9f72-fb41c1ec5503">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
+    <connection id="350cc14d-52ca-435c-9291-acd8dae6b9df">
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="5326bcd8-fe9d-4218-9f72-fb41c1ec5503" />
+    <connection id="350cc14d-52ca-435c-9291-acd8dae6b9df" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -67,7 +67,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="5326bcd8-fe9d-4218-9f72-fb41c1ec5503" active="true" signed="false">
+      <connection id="350cc14d-52ca-435c-9291-acd8dae6b9df" active="true" signed="false">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -83,7 +83,7 @@
           <database value="mysql" />
           <type value="USER_PASSWORD" />
           <user value="debian-sys-maint" />
-          <deprecated-pwd value="Qm9uaWZTQmoyRTRyNWNGeg==" />
+          <deprecated-pwd value="R0hvMWtMVnNNRHdPdlJaNA==" />
         </database>
         <properties>
           <auto-commit value="false" />
