@@ -16,10 +16,11 @@ public class UserServiceImpl implements UserService {
 
     public void saveUser(String name, String lastName, byte age) {
 
+        new UserDaoJDBCImpl().saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-
+        new UserDaoJDBCImpl().removeUserById(id);
     }
 
     public List<User> getAllUsers() {
@@ -27,6 +28,6 @@ public class UserServiceImpl implements UserService {
     }
 
     public void cleanUsersTable() {
-
+        new UserDaoJDBCImpl().cleanUsersTable();
     }
 }
