@@ -4,8 +4,11 @@ import jm.task.core.jdbc.model.User;
 
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static jm.task.core.jdbc.util.Util.*;
@@ -41,7 +44,11 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);
             preparedStatement.setInt(3, age);
-            preparedStatement.executeUpdate();
+
+            if (!preparedStatement.execute()) {
+                System.out.printf("User с именем – %s добавлен в базу данных\n", name);
+            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +68,24 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public List<User> getAllUsers() {
-        return null;
+        String SQLGETALLUSERS = "SELECT * FROM User";
+        List<User> Users = new ArrayList<>();
+        try (PreparedStatement preparedStatement = getStatement(SQLGETALLUSERS)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                String name = resultSet.getString("name");
+                String lastname = resultSet.getString("lastname");
+                int age = resultSet.getInt("age");
+                User user = new User(name, lastname, (byte) age);
+                Users.add(user);
+                System.out.println(user);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return Users;
+
     }
 
         public void cleanUsersTable() {

@@ -11,7 +11,7 @@ public class Util {
 
     public static PreparedStatement getStatement(String SQL) throws SQLException{
             Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-            System.out.println("connection ok");
+            //System.out.println("connection ok");
             return connection.prepareStatement(SQL);
 
     }

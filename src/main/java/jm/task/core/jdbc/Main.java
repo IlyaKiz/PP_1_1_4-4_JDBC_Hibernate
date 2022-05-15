@@ -13,15 +13,17 @@ public class Main {
 
 
     public static void main(String[] args) throws SQLException {
-        final UserService userService = new UserServiceImpl();
-        final String testName = "Ivan";
-        final String testLastName = "Ivanov";
-        final byte testAge = 5;
-        final Long id = Long.valueOf(1);
 
-        //userService.cleanUsersTable();
-        //userService.saveUser(testName, testLastName, testAge);
-        userService.removeUserById(id);
+        UserService userService = new UserServiceImpl();
+        userService.createUsersTable();
+        userService.saveUser("Ivan1", "Ivanov", (byte) 25);
+        userService.saveUser("Ivan2", "Ivanov", (byte) 35);
+        userService.saveUser("Ivan3", "Ivanov", (byte) 45);
+        userService.saveUser("Ivan4", "Ivanov", (byte) 55);
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
+
+
 
     }
 }
