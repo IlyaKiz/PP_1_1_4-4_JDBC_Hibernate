@@ -54,11 +54,10 @@ public class UserDaoJDBCImpl implements UserDao {
         }
 
 
-
     }
 
     public void removeUserById(long id) {
-    String SQLREMOVEUSERBYID = "DELETE FROM User WHERE id = ?";
+        String SQLREMOVEUSERBYID = "DELETE FROM User WHERE id = ?";
         try (PreparedStatement preparedStatement = getStatement(SQLREMOVEUSERBYID)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
@@ -72,7 +71,7 @@ public class UserDaoJDBCImpl implements UserDao {
         List<User> Users = new ArrayList<>();
         try (PreparedStatement preparedStatement = getStatement(SQLGETALLUSERS)) {
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String lastname = resultSet.getString("lastname");
                 int age = resultSet.getInt("age");
@@ -88,7 +87,7 @@ public class UserDaoJDBCImpl implements UserDao {
 
     }
 
-        public void cleanUsersTable() {
+    public void cleanUsersTable() {
         String SQLCLEANTABLE = "TRUNCATE TABLE User";
         try (PreparedStatement preparedStatement = getStatement(SQLCLEANTABLE)) {
             preparedStatement.execute();
