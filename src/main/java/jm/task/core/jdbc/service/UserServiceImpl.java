@@ -10,33 +10,33 @@ public class UserServiceImpl implements UserService {
     UserDaoJDBCImpl userDaoJDBCImpl = new UserDaoJDBCImpl();
     UserDaoHibernateImpl userDaoHibernateImpl = new UserDaoHibernateImpl();
     public void createUsersTable() {
-        //userDaoJDBCImpl.createUsersTable();
-        userDaoHibernateImpl.createUsersTable();
+        userDaoJDBCImpl.createUsersTable();
+        //userDaoHibernateImpl.createUsersTable();
     }
 
     public void dropUsersTable() {
-        //userDaoJDBCImpl.dropUsersTable();
-        userDaoHibernateImpl.dropUsersTable();
+        userDaoJDBCImpl.dropUsersTable();
+        //userDaoHibernateImpl.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        //userDaoJDBCImpl.saveUser(name, lastName, age);
-        userDaoHibernateImpl.saveUser(name, lastName, age);
+        userDaoJDBCImpl.saveUser(name, lastName, age);
+        //userDaoHibernateImpl.saveUser(name, lastName, age);
     }
 
     public void removeUserById(long id) {
-        //userDaoJDBCImpl.removeUserById(id);
-        userDaoHibernateImpl.removeUserById(id);
+        userDaoJDBCImpl.removeUserById(id);
+        //userDaoHibernateImpl.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        //return userDaoJDBCImpl.getAllUsers();
-        return userDaoHibernateImpl.getAllUsers();
+        return userDaoJDBCImpl.getAllUsers();
+        //return userDaoHibernateImpl.getAllUsers();
 
     }
 
     public void cleanUsersTable() {
-        //userDaoJDBCImpl.cleanUsersTable();
-        userDaoHibernateImpl.cleanUsersTable();
+        userDaoJDBCImpl.cleanUsersTable();
+        //userDaoHibernateImpl.cleanUsersTable();
     }
 }

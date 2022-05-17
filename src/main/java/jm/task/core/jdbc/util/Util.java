@@ -18,10 +18,10 @@ public class Util {
     public static final String URL = "jdbc:mysql://localhost:3306/mysql";
 
 
-    public static PreparedStatement getStatement(String SQL) throws SQLException {
+    public static Connection getConnection() throws SQLException {
         Connection connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
         //System.out.println("connection ok");
-        return connection.prepareStatement(SQL);
+        return connection;
 
     }
 
