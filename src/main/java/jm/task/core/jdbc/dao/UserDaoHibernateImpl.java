@@ -1,12 +1,8 @@
 package jm.task.core.jdbc.dao;
-
 import jm.task.core.jdbc.model.User;
-
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -22,7 +18,8 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction = session.beginTransaction();
             session.createSQLQuery("CREATE TABLE IF NOT EXISTS User (id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, name VARCHAR(20), lastName VARCHAR(20), age INT)").executeUpdate();
             transaction.commit();
-
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -34,6 +31,8 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createSQLQuery("drop TABLE IF EXISTS User").executeUpdate();
             transaction.commit();
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -44,6 +43,8 @@ public class UserDaoHibernateImpl implements UserDao {
             User user = new User(name, lastName, age);
             session.save(user);
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -57,7 +58,8 @@ public class UserDaoHibernateImpl implements UserDao {
                 session.delete(user);
             }
             transaction.commit();
-
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -69,6 +71,8 @@ public class UserDaoHibernateImpl implements UserDao {
 
             return (List<User>)session.createQuery("FROM User").list();
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
     @Override
@@ -79,6 +83,8 @@ public class UserDaoHibernateImpl implements UserDao {
             session.createQuery("delete from User").executeUpdate();
             transaction.commit();
 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
